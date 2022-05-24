@@ -28,3 +28,8 @@ def test_deck_shuffle_deck(deck_with_cards) -> None:
     non_shuffle = deck_with_cards.decklist[:]
     deck_with_cards.shuffle_deck()
     assert non_shuffle != deck_with_cards.decklist
+
+deck = Deck()
+deck.generate_deck()
+card_faces = Counter([card.face for card in deck.decklist])
+print(card_faces.total())
