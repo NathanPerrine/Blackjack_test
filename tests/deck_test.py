@@ -1,6 +1,6 @@
 import pytest
 from collections import Counter
-from blackjack.blackjack import Deck
+from blackjack.deck import Deck
 
 @pytest.fixture
 def empty_deck() -> Deck():

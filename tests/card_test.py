@@ -1,5 +1,5 @@
 import pytest
-from blackjack.blackjack import Card
+from blackjack.card import Card
 
 
 
@@ -8,7 +8,7 @@ def test_card_no_values() -> None:
     with pytest.raises(TypeError):
         test_card = Card()
 
-def test_card_with_values() -> None:
-    test_card = Card('Heart', 'Ace')
-    assert test_card.suit == 'Heart'
-    assert test_card.face == 'Ace'
+@pytest.mark.parametrize("suit, face", [('Spade', 'Ace'), ('Heart', 2), ('Diamond', 'Jack'), ('Club', 3)])
+def test_card_with_values(suit, face) -> None:
+    test_card = Card(suit, face)
+    assert test_card.suit == suit
