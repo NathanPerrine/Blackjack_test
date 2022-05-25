@@ -23,11 +23,11 @@ class Person():
 
     def get_score(self):
         if self.hand == []:
-            print("You have no cards in hand, no score for you.")
+            return "You have no cards in hand, no score for you."
         score = 0 
         face_cards = {"Jack", "Queen", "King"}
         for card in self.hand:
-            if card.face.isnumeric():
+            if isinstance(card.face, int):
                 score += card.face
             elif card.face in face_cards:
                 score += 10 
@@ -36,3 +36,4 @@ class Person():
                     score += 1
                 else:
                     score += 11
+        return score

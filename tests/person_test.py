@@ -42,7 +42,25 @@ def test_person_add_card_not_card(person) -> None:
         person.add_card(1)
 
 
-def test_person_get_score_no_hand(capsys, person) -> None:
-    person.get_score()
-    captured = capsys.readouterr()
-    assert captured.out == "You have no cards in hand, no score for you.\n"
+def test_person_get_score_no_hand(person) -> None:
+    """Get Score with no cards should return string - You have no cards in hand, no score for you."""
+    assert person.get_score() == "You have no cards in hand, no score for you."
+    
+
+def test_person_get_score_with_ace_card(person, card) -> None:
+    """Get Score with an ace should have a value of 11"""
+    person.add_card(card)
+    assert person.get_score() == 11
+
+
+def test_person_get_score_with_numeric_card(person) -> None:
+    """Adding a numeric card should add that number to the score"""
+    test_card = Card("Spades", 3)
+    person.add_card(test_card)
+    assert person.get_score() == test_card.face
+
+def test_person_get_score_with_face_card(person) -> None:
+    """Get Score with a Face Card should have a value of 10"""
+    test_card = Card("Clubs", "King")
+    person.add_card(test_card)
+    assert person.get_score() == 10
