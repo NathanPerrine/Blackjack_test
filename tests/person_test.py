@@ -5,7 +5,7 @@ import pytest
 
 @pytest.fixture 
 def person() -> Person:
-    """Init a new person class for testing"""
+    """Person with no cards in hand"""
     return Person("Nathan")
 
 
@@ -64,3 +64,10 @@ def test_person_get_score_with_face_card(person) -> None:
     test_card = Card("Clubs", "King")
     person.add_card(test_card)
     assert person.get_score() == 10
+
+
+def test_person_get_score_double_aces(person, card) -> None:
+    """Two aces should have a value of 12, one ace is worth 11, second is worth 1."""
+    person.add_card(card)
+    person.add_card(card)
+    assert person.get_score() == 12

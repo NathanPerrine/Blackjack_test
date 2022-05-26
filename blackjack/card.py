@@ -2,7 +2,7 @@ class InvalidValueError(Exception):
     pass
 
 
-class Card():
+class Card:
     def __init__(self, suit, face):
         if suit not in {'Hearts', 'Diamonds', 'Spades', 'Clubs'}:
             raise InvalidValueError("Suits can only be Hearts, Diamonds, Spades, Clubs")

@@ -1,2 +1,2 @@
-class Dealer():
+class Dealer:
     pass

@@ -1,7 +1,7 @@
 from blackjack.card import Card
 from random import shuffle
 
-class Deck():
+class Deck:
     def __init__(self):
         self.decklist = []
 

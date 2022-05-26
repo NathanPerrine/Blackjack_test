@@ -4,8 +4,8 @@ from blackjack.card import Card
 class NotACard(Exception):
     pass
 
-class Person():
-    def __init__(self, name):
+class Person:
+    def __init__(self, name: str):
         self.name = name
         self.hand = []
 
